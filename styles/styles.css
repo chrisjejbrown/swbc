@@ -18,30 +18,17 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --head-text-color: white;
   --background-color: #ffffff;
   --overlay-background-color: #eeeeee;
   --highlight-background-color: #cccccc;
   --background-color-light: #a5610f;
 
 
-  /* PAX8 */
-
-  --text-color: #000000;
---link-color: #196ef9;
---background-color: #ffffff;
---overlay-background-color: #eeeeee;
---highlight-background-color: #cccccc;
-
-
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
-
-  /* PAX8 */
-  --heading-font-family: Poppins, sans-serif;
---body-font-family: Poppins, sans-serif;
---fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
 
   
   /* body sizes */
@@ -63,18 +50,6 @@
   /* nav height */
   --nav-height: 64px;
 
-  /* PAX8 */
-
-  --heading-font-size-xxl: 68px;
---heading-font-size-xl: 48px;
---heading-font-size-l: 36px;
---heading-font-size-m: 30px;
---heading-font-size-s: 26px;
---heading-font-size-xs: 20px;
---body-font-size-m: 20px;
---body-font-size-s: 17px;
---body-font-size-xs: 16px;
---body-font-size-xxs: 15px;
 }
 
 @font-face {
@@ -125,6 +100,7 @@ h6 {
   margin-top: 1em;
   margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
+  color: var(--head-text-color);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
