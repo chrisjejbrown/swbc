@@ -61,6 +61,13 @@
   aspect-ratio: 1 / 1;
 }
 
+.cards h1,
+.cards h2,
+.cards h3,
+.cards h4,
+.cards h5 {
+  color: black;
+}
 .cards.across .cards-card-image { grid-area: image; }
 .cards.across .cards-card-body { grid-area: body; }
 
