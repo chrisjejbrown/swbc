@@ -102,6 +102,11 @@ h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
   color: var(--head-text-color);
 }
+h1,
+h2,
+h3, {
+  text-align: center;
+}
 
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
