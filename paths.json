@@ -1,0 +1,6 @@
+{
+  "mappings": [
+    "/content/edge-delivery/:/",
+    "/content/edge-delivery/configuration:/.helix/config.json"
+  ]
+}
