@@ -1,29 +1,28 @@
-main .hero-container > div {
-  max-width: unset;
-}
-  
-main .hero-container {
-  padding: 0;
-}
-
+/* Hero block - SWBC dark centered style (Version 1) */
 .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
+  padding: 48px 32px;
+  min-height: 400px;
+  background-color: var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
+@media (width >= 900px) {
+  .hero {
+    padding: 64px 32px 0;
+    min-height: 480px;
+  }
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
-  object-fit: cover;
   box-sizing: border-box;
 }
 
@@ -31,4 +30,89 @@ main .hero-container {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  opacity: 0.4;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero > div:first-child {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  max-width: unset;
+}
+
+/* Subtitle text */
+.hero > div:nth-child(2) > div {
+  color: rgb(255 255 255 / 80%);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  margin: 0 auto 24px;
+  max-width: 700px;
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.15;
+}
+
+@media (width >= 900px) {
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
+  }
+}
+
+/* CTA buttons container */
+.hero > div:last-child {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.hero > div:last-child a.button:any-link {
+  border-radius: 6px;
+  padding: 12px 32px;
+  font-size: var(--body-font-size-s);
+  margin: 0;
+}
+
+/* First button: outline style */
+.hero > div:last-child a.button:any-link:first-child {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+/* Second button: teal filled */
+.hero > div:last-child a.button:any-link:nth-child(2) {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* Button hover states */
+.hero > div:last-child a.button:any-link:first-child:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
+
+.hero > div:last-child a.button:any-link:nth-child(2):hover {
+  background-color: var(--color-teal-dark);
+}
+
+/* Container overrides */
+main .hero-container {
+  padding: 0;
+}
+
+main .hero-container > div {
+  max-width: unset;
 }

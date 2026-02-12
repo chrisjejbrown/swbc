@@ -1,0 +1,61 @@
+/* Tabs block - SWBC pill-style tabs */
+.tabs .tabs-list {
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  font-size: var(--body-font-size-s, 14px);
+  overflow-x: auto;
+  border-bottom: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 24px;
+  padding: 8px 20px;
+  background-color: var(--color-white, #fff);
+  color: var(--color-navy, #0B1D32);
+  font-weight: 500;
+  font-size: var(--body-font-size-s, 14px);
+  line-height: 1.4;
+  text-align: center;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
+.tabs .tabs-list button:hover {
+  border-color: var(--color-teal, #00BCD4);
+  color: var(--color-teal, #00BCD4);
+  background-color: var(--color-white, #fff);
+}
+
+.tabs .tabs-list button[aria-selected='true'] {
+  background-color: var(--color-teal, #00BCD4);
+  border-color: var(--color-teal, #00BCD4);
+  color: var(--color-white, #fff);
+  cursor: default;
+}
+
+.tabs .tabs-panel {
+  margin-top: 16px;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.tabs .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs .tabs-panel img {
+  width: 100%;
+  border-radius: 8px;
+}

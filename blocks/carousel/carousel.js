@@ -1,15 +1,18 @@
 export function updateButtons(activeSlide) {
+  if (!activeSlide) return;
   const block = activeSlide.closest('.block');
   const buttons = block.closest('.carousel-wrapper').querySelector('.carousel-buttons');
+  if (!buttons) return;
 
-  const nthSlide = activeSlide.offsetLeft / activeSlide.parentNode.clientWidth;
-  const button = block.parentElement.querySelector(`.carousel-buttons > button:nth-child(${nthSlide + 1})`);
+  const nthSlide = Math.round(activeSlide.offsetLeft / activeSlide.parentNode.clientWidth);
+  const button = buttons.children[nthSlide];
   [...buttons.children].forEach((r) => r.classList.remove('selected'));
-  button.classList.add('selected');
+  if (button) button.classList.add('selected');
 }
 
 export default function decorate(block) {
   const buttons = document.createElement('div');
+  buttons.className = 'carousel-buttons';
   [...block.children].forEach((row, i) => {
     const classes = ['image', 'text'];
     classes.forEach((e, j) => {

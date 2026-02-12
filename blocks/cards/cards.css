@@ -1,19 +1,37 @@
+/* Cards block - SWBC news card style */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: 20px;
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .cards > ul > li {
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.cards > ul > li:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+  transform: translateY(-2px);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  padding: 16px 20px 20px;
+  font-size: var(--body-font-size-s);
+  color: var(--color-dark-gray);
+  line-height: 1.5;
 }
 
 .cards .cards-card-image {
@@ -26,39 +44,23 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
-/* chris */
-.cards.light > ul > li {
-  background-color: #FBEAEB;
-  color: #2F3C7E;
-}
-.cards.light a.button:any-link {
-  background-color: #2F3C7E;
-}
-
-.cards.dark > ul > li {
-  background-color: #101820;
-  color: white;
-}
-.cards.dark a.button:any-link {
-  background-color: #ca2909;
-}
-
-.cards.across > ul {
+.cards .cards-card-body strong {
   display: block;
-} 
-.cards.across > ul > li {
-  display: grid;
-  grid-gap: 10px;
-  grid: 'image body';
-  grid-template-columns: 320px auto;
-  margin-bottom: 50px;
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+  line-height: 1.3;
 }
-.cards > ul > li img {
-  aspect-ratio: 1 / 1;
+
+.cards .cards-card-body a:any-link {
+  color: var(--color-teal);
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
 }
 
 .cards h1,
@@ -68,13 +70,16 @@
 .cards h5 {
   color: black;
 }
+
 .cards.across .cards-card-image { grid-area: image; }
+
 .cards.across .cards-card-body { grid-area: body; }
 
 @media (max-width: 600px) {
   .cards > ul > li img {
     aspect-ratio: 1 / 1;
   }
+
   .cards.across  > ul > li {
     display: block;
   }

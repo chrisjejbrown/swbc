@@ -1,6 +1,8 @@
+/* Columns block - SWBC responsive layout */
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns img {
@@ -21,8 +23,8 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: top;
-    flex-direction: unset;
+    align-items: flex-start;
+    flex-direction: row;
     gap: 32px;
   }
 
@@ -30,4 +32,29 @@
     flex: 1;
     order: unset;
   }
+}
+
+/* Stats columns: bold numbers with descriptions */
+.columns > div > div strong {
+  color: var(--color-navy);
+  font-size: var(--heading-font-size-m);
+}
+
+.columns > div > div a.button:any-link {
+  margin-top: 8px;
+}
+
+/* Footer-like columns layout */
+.columns > div > div p {
+  margin: 4px 0;
+  font-size: var(--body-font-size-s);
+  color: var(--color-dark-gray);
+}
+
+.columns > div > div > strong:first-child {
+  display: block;
+  font-size: var(--heading-font-size-xs);
+  color: var(--color-navy);
+  margin-bottom: 12px;
+  font-weight: 700;
 }
