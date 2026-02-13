@@ -18,6 +18,22 @@ import {
   toClassName,
 } from "./aem.js";
 
+
+import {
+  runExperimentation,
+  showExperimentationRail,
+} from './experiment-loader.js';
+
+const experimentationConfig = {
+  prodHost: 'www.my-site.com',
+  audiences: {
+    mobile: () => window.innerWidth < 600,
+    desktop: () => window.innerWidth >= 600,
+    // define your custom audiences here as needed
+  },
+};
+
+
 function initWebSDK(path, config) {
   // Preparing the alloy queue
   if (!window.alloy) {
