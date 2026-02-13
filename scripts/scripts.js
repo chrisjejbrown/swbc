@@ -324,8 +324,3 @@ async function loadPage() {
 }
 
 loadPage();
-
-Sign in
-
-Sign in
-Sign in to continue
