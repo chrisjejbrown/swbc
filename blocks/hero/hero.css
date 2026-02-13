@@ -33,29 +33,6 @@
   opacity: 0.4;
 }
 
-.hero > div {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero > div:first-child {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  max-width: unset;
-}
-
-/* Subtitle text */
-.hero > div:nth-child(2) > div {
-  color: rgb(255 255 255 / 80%);
-  font-size: var(--body-font-size-s);
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-
 .hero h1 {
   color: var(--color-white);
   margin: 0 auto 24px;
@@ -70,42 +47,11 @@
   }
 }
 
-/* CTA buttons container */
-.hero > div:last-child {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-
-.hero > div:last-child a.button:any-link {
-  border-radius: 6px;
-  padding: 12px 32px;
-  font-size: var(--body-font-size-s);
-  margin: 0;
-}
-
-/* First button: outline style */
-.hero > div:last-child a.button:any-link:first-child {
-  background-color: transparent;
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
-}
-
-/* Second button: teal filled */
-.hero > div:last-child a.button:any-link:nth-child(2) {
-  background-color: var(--color-teal);
-  color: var(--color-white);
-}
-
-/* Button hover states */
-.hero > div:last-child a.button:any-link:first-child:hover {
-  background-color: rgb(255 255 255 / 15%);
-}
-
-.hero > div:last-child a.button:any-link:nth-child(2):hover {
-  background-color: var(--color-teal-dark);
+.hero > div {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Container overrides */
@@ -115,4 +61,67 @@ main .hero-container {
 
 main .hero-container > div {
   max-width: unset;
+}
+
+.hero > div:first-child {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  max-width: unset;
+}
+
+/* CTA buttons container */
+.hero > div:last-child {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* Subtitle text */
+.hero > div:nth-child(2) > div {
+  color: rgb(255 255 255 / 80%);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Base button styling for hero links (links lack .button class inside blocks) */
+.hero > div:last-child a:any-link {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 12px 32px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  font-family: var(--body-font-family);
+  margin: 0;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+/* First button: outline style */
+.hero > div:last-child a:first-child {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+/* Second button: teal filled */
+.hero > div:last-child a:nth-child(2) {
+  background-color: var(--color-teal);
+  border: 2px solid var(--color-teal);
+  color: var(--color-white);
+}
+
+/* Button hover states */
+.hero > div:last-child a:first-child:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
+
+.hero > div:last-child a:nth-child(2):hover {
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
 }
