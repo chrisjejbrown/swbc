@@ -2,8 +2,7 @@
 .teaser {
     display: grid;
     grid-template-areas: "teaser";
-    align-items: end;
-    justify-items: center;
+    place-items: end center;
 }
 
 .teaser > div {

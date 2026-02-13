@@ -1,66 +1,62 @@
 // put your AEM publish address here
-const AEM_HOST = "https://publish-p99452-e916802.adobeaemcloud.com";
+const AEM_HOST = 'https://publish-p99452-e916802.adobeaemcloud.com';
 
 export default function decorate(block) {
-  const slugDiv = block.querySelector("div:nth-child(1)");
-  const slugID = document.createElement("div");
-  slugID.id = "slug";
+  const slugDiv = block.querySelector('div:nth-child(1)');
+  const slugID = document.createElement('div');
+  slugID.id = 'slug';
   slugDiv.replaceWith(slugID);
   slugID.innerHTML = `${slugDiv.innerHTML}`;
   const slugTemp = slugID.innerHTML.replace(
-    /<div data-aue-prop=\"text\" data-aue-label=\"Slug\" data-aue-type=\"text\">|<div>|<\/div>/g,
-    ""
+    /<div data-aue-prop="text" data-aue-label="Slug" data-aue-type="text">|<div>|<\/div>/g,
+    '',
   );
   const slug = slugTemp.match(/\S+/g);
 
-  const quoteDiv = block.querySelector("div:last-of-type");
-  const adventureDiv = document.createElement("div");
+  const quoteDiv = block.querySelector('div:last-of-type');
+  const adventureDiv = document.createElement('div');
   adventureDiv.id = `adventure-${slug}`;
   quoteDiv.replaceWith(adventureDiv);
 
   fetch(
-    `${AEM_HOST}/graphql/execute.json/aem-demo-assets/adventure-by-slug;slug=${slug}`
+    `${AEM_HOST}/graphql/execute.json/aem-demo-assets/adventure-by-slug;slug=${slug}`,
   )
     .then((response) => response.json())
     .then((response) => {
-      const backgroundImage =
-        response.data.adventureList.items[0].primaryImage._path;
+      // eslint-disable-next-line no-underscore-dangle
+      const backgroundImage = response.data.adventureList.items[0].primaryImage._path;
       document.getElementById(
-        adventureDiv.id
+        adventureDiv.id,
       ).innerHTML = `<section><img src=${AEM_HOST}${backgroundImage}></section>`;
 
       const adventureTitle = response.data.adventureList.items[0].title;
       document.getElementById(
-        adventureDiv.id
+        adventureDiv.id,
       ).innerHTML += `<section><h3>${adventureTitle}</h3></section>`;
 
-      const adventureDesc =
-        response.data.adventureList.items[0].description.plaintext;
+      const adventureDesc = response.data.adventureList.items[0].description.plaintext;
       document.getElementById(
-        adventureDiv.id
+        adventureDiv.id,
       ).innerHTML += `<section>${adventureDesc}</section>`;
 
       const { adventureType } = response.data.adventureList.items[0];
-      document.getElementById(adventureDiv.id).innerHTML +=
-        "<section>" + `Adventure Type: ${adventureType}</section>`;
+      document.getElementById(adventureDiv.id).innerHTML
+        += `<section>Adventure Type: ${adventureType}</section>`;
 
       const { tripLength } = response.data.adventureList.items[0];
-      document.getElementById(adventureDiv.id).innerHTML +=
-        "<section>" + `Trip Length: ${tripLength}</section>`;
+      document.getElementById(adventureDiv.id).innerHTML
+        += `<section>Trip Length: ${tripLength}</section>`;
 
       const tripDifficulty = response.data.adventureList.items[0].difficulty;
-      document.getElementById(adventureDiv.id).innerHTML +=
-        "<section>" + `Difficulty: ${tripDifficulty}</section>`;
+      document.getElementById(adventureDiv.id).innerHTML
+        += `<section>Difficulty: ${tripDifficulty}</section>`;
 
       const { groupSize } = response.data.adventureList.items[0];
-      document.getElementById(adventureDiv.id).innerHTML +=
-        "<section>" + `Group Size: ${groupSize}</section>`;
-      /*
-const tripItinerary= response.data.adventureList.items[0].itinerary.html;
-document.getElementById(adventureDiv.id).innerHTML += "<section>" + "Itinerary: </br>" + tripItinerary + "</section>";
-*/
+      document.getElementById(adventureDiv.id).innerHTML
+        += `<section>Group Size: ${groupSize}</section>`;
     })
     .catch((error) => {
-      console.log("Error fetching data:", error);
+      // eslint-disable-next-line no-console
+      console.log('Error fetching data:', error);
     });
 }

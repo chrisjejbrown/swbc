@@ -1,3 +1,6 @@
 helix-importer-ui
 scripts/alloy.js
 tools/preview/
+plugins/experimentation/package.json
+plugins/experimentation/package-lock.json
+blocks/form/component-definition.json

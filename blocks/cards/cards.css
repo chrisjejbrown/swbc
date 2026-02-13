@@ -82,7 +82,7 @@
 
 .cards.across .cards-card-body { grid-area: body; }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .cards > ul > li img {
     aspect-ratio: 1 / 1;
   }
