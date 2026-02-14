@@ -34,7 +34,8 @@
       "teaser",
       "blockquote",
       "embed",
-      "carousel"
+      "carousel",
+      "accordion"
     ]
   },
   {
