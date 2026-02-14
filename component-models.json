@@ -314,5 +314,12 @@
         "valueType": "string"
       }
     ]
-  }
+  },
+  {
+  "id": "accordion-item",
+  "fields": [
+    { "component": "text", "name": "summary", "label": "Summary" },
+    { "component": "richtext", "name": "text", "label": "Text" }
+  ]
+}
 ]
